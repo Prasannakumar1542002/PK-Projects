@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+	license agreements. See the NOTICE file distributed with this work for additional 
+	information regarding copyright ownership. The ASF licenses this file to 
+	you under the Apache License, Version 2.0 (the "License"); you may not use 
+	this file except in compliance with the License. You may obtain a copy of 
+	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. -->
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="https://ofbiz.apache.org/dtds/services.xsd">
+	<description>OnlineExamPortal Services</description>
+	<vendor></vendor>
+	<version>1.0</version>
+	<service name="noSyntaxError" engine="interface">
+		<description>
+            Dummy service to prevent empty files and syntax error - Remove when the 1st real service will be added here 
+        </description>
+	</service>
+	<service name="Login" engine="java"
+		location="com.exam.services.LoginService" invoke="checklogin"
+		auth="true">
+		<description>Login Form</description>
+		<attribute name="username" type="String" mode="IN"
+			optional="false"></attribute>
+		<attribute name="password" type="String" mode="IN"
+			optional="false"></attribute>
+		<attribute name="delegator" type="Object" mode="IN"
+			optional="false"></attribute>
+		<attribute name="dataResultStatus" type="Map" mode="OUT"
+			optional="false"></attribute>
+	</service>
+	<service name="assignPartyRole" default-entity-name="PartyRole"
+		engine="entity-auto" invoke="create" auth="true">
+		<description>PartRole Form</description>
+		<auto-attributes include="pk" mode="IN"
+			optional="false" />
+	</service>
+	<service name="CreateTopicMaster"
+		default-entity-name="TopicMaster" engine="entity-auto" invoke="create"
+		auth="true">
+		<description>Create TopicMaster Record</description>
+		<auto-attributes mode="OUT" include="pk"
+			optional="false" />
+		<auto-attributes mode="IN" include="nonpk"
+			optional="false" />
+	</service>
+	<service name="UpdateTopicMaster"
+		default-entity-name="TopicMaster" engine="entity-auto" invoke="update"
+		auth="true">
+		<description>Update TopicMaster Record</description>
+		<auto-attributes mode="IN" include="pk"
+			optional="false" />
+		<auto-attributes mode="IN" include="nonpk"
+			optional="false" />
+	</service>
+	<service name="DeleteTopicMaster"
+		default-entity-name="TopicMaster" engine="entity-auto" invoke="delete"
+		auth="true">
+		<description>Update TopicMaster Record</description>
+		<auto-attributes mode="IN" include="pk"
+			optional="false" />
+	</service>
+	<!-- ExamMaster entity Creation -->
+	<service name="CreateExamMaster"
+		default-entity-name="ExamMaster" engine="entity-auto" invoke="create"
+		auth="true">
+		<auto-attributes mode="OUT" include="pk"
+			optional="false" />
+		<auto-attributes mode="IN" include="nonpk"
+			optional="false" />
+	</service>
+	<service name="UpdateExamMaster"
+		default-entity-name="ExamMaster" engine="entity-auto" invoke="update"
+		auth="true">
+		<auto-attributes mode="IN" include="pk"
+			optional="false" />
+		<auto-attributes mode="IN" include="nonpk"
+			optional="false" />
+	</service>
+	<service name="CreateUserExamMapping"
+		default-entity-name="UserExamMapping" engine="entity-auto"
+		invoke="create" auth="true">
+		<description>Create UserExamMapping Record</description>
+		<auto-attributes mode="IN" include="pk"
+			optional="false"></auto-attributes>
+		<auto-attributes mode="IN" include="nonpk"
+			optional="false"></auto-attributes>
+	</service>
+	<service name="CreateExamTopicMapping"
+		default-entity-name="ExamTopicMapping" engine="entity-auto"
+		invoke="create" auth="true">
+		<auto-attributes mode="IN" include="pk"
+			optional="false" />
+		<auto-attributes mode="IN" include="nonpk"
+			optional="false" />
+	</service>
+	<service name="UpdateExamTopicMapping"
+		default-entity-name="ExamTopicMapping" engine="entity-auto"
+		invoke="update" auth="true">
+		<auto-attributes mode="IN" include="pk"
+			optional="false" />
+		<auto-attributes mode="IN" include="nonpk"
+			optional="false" />
+	</service>
+	<service name="CreateQuestionMaster"
+		default-entity-name="QuestionMaster" engine="entity-auto"
+		invoke="create" auth="true">
+		<auto-attributes mode="OUT" include="pk"
+			optional="false" />
+		<auto-attributes mode="IN" include="nonpk"
+			optional="false" />
+		<override name="optionA" optional="true" />
+		<override name="optionB" optional="true" />
+		<override name="optionC" optional="true" />
+		<override name="optionD" optional="true" />
+		<override name="optionE" optional="true" />
+	</service>
+	<service name="UpdateQuestionMaster"
+		default-entity-name="QuestionMaster" engine="entity-auto"
+		invoke="update" auth="true">
+		<auto-attributes mode="IN" include="pk"
+			optional="false" />
+		<auto-attributes mode="IN" include="nonpk"
+			optional="false" />
+		<override name="optionA" optional="true" />
+		<override name="optionB" optional="true" />
+		<override name="optionC" optional="true" />
+		<override name="optionD" optional="true" />
+		<override name="optionE" optional="true" />
+	</service>
+	<service name="DeleteQuestionMaster"
+		default-entity-name="QuestionMaster" engine="entity-auto"
+		invoke="delete" auth="true">
+		<auto-attributes mode="IN" include="pk"
+			optional="false" />
+	</service>
+	<service name="getExamInformation" engine="java"
+		location="com.exam.services.ExamInfoService" invoke="getExamInfo"
+		auth="true">
+		<description>ExamInformation</description>
+		<attribute name="exam" type="List" mode="OUT"
+			optional="false"></attribute>
+
+	</service>
+	<service name="getQuestionInformation" engine="java"
+		location="com.exam.services.QuestionInfoService"
+		invoke="getQuestionInfo" auth="true">
+		<description>QuestionsInformation</description>
+		<attribute name="examId" type="String" mode="IN"
+			optional="false"></attribute>
+		<attribute name="examquestion" type="List" mode="OUT"
+			optional="false"></attribute>
+		<attribute name="request" type="Object" mode="IN"
+			optional="false"></attribute>
+	</service>
+
+	<service name="createUserAttemptMaster"
+		default-entity-name="UserAttemptMaster" engine="entity-auto"
+		invoke="create" auth="true">
+		<description>Question Form</description>
+		<auto-attributes include="pk" mode="OUT"
+			optional="false" />
+		<auto-attributes include="nonpk" mode="IN"
+			optional="true" />
+	</service>
+
+	<service name="updateUserExamMappingnoOfAttempts"
+		default-entity-name="UserExamMapping" engine="entity-auto"
+		invoke="update" auth="true">
+		<description>Question Form</description>
+		<auto-attributes include="pk" mode="IN"
+			optional="false" />
+		<auto-attributes include="nonpk" mode="IN"
+			optional="true" />
+	</service>
+	<service name="createUserAttemptTopicMaster"
+		default-entity-name="UserAttemptTopicMaster" engine="entity-auto"
+		invoke="create" auth="true">
+		<description>Question Form</description>
+		<auto-attributes include="pk" mode="IN"
+			optional="false" />
+		<auto-attributes include="nonpk" mode="IN"
+			optional="true" />
+	</service>
+	<service name="createUserAttemptAnswerMaster"
+		default-entity-name="UserAttemptAnswerMaster" engine="entity-auto"
+		invoke="create" auth="true">
+		<description>Question Form</description>
+		<auto-attributes include="pk" mode="INOUT"
+			optional="false" />
+		<auto-attributes include="nonpk" mode="INOUT"
+			optional="true" />
+	</service>
+	<service name="DeleteUserExamMapping"
+		default-entity-name="UserExamMapping" engine="entity-auto"
+		invoke="delete" auth="true">
+		<auto-attributes mode="IN" include="pk"
+			optional="false" />
+	</service>
+</services>

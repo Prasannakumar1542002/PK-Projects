@@ -1,0 +1,335 @@
+{
+  "admin": [
+    {
+      "admin_name": "admin",
+      "admin_password": "1234"
+    }
+  ],
+  "subject": [
+    {
+      "subject_name": "Maths",
+      "id": 1
+    },
+    {
+      "subject_name": "English",
+      "id": 2
+    },
+    {
+      "subject_name": "java",
+      "id": 3
+    },
+    {
+      "subject_name": "Science",
+      "id": 4
+    }
+  ],
+  "Exam": [
+    {
+      "id": 1,
+      "exam_name": "Maths",
+      "exam_desc": "This is Math Exam",
+      "exam_date": "17-9-2021 17:49:39",
+      "exam_marks": "5",
+      "exam_totalQuestion": "5",
+      "exam_passMarks": "3",
+      "exam_level": "Easy"
+    },
+    {
+      "exam_name": "Physics",
+      "exam_desc": "learning of thermodynamics",
+      "exam_level": "5",
+      "exam_passMarks": "25",
+      "exam_totalQuestion": "5",
+      "exam_marks": "50",
+      "exam_date": "6-12-2023 10:20:8",
+      "id": 2
+    },
+    {
+      "exam_name": "Software Engineer role",
+      "exam_desc": "Answer all the questions without fail",
+      "exam_level": "Medium",
+      "exam_passMarks": "15",
+      "exam_totalQuestion": "3",
+      "exam_marks": "30",
+      "exam_date": "6-12-2023 14:41:22",
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "id": 10
+    },
+    {
+      "id": 11
+    },
+    {
+      "id": 12
+    }
+  ],
+  "Question": [
+    {
+      "question_name": "what is thermodynamics?",
+      "option_one": "fission",
+      "option_two": "fussion",
+      "option_three": "absorption",
+      "option_four": "adsorption",
+      "question_answer": "fission",
+      "exam_id": "2",
+      "subject_name": "java",
+      "id": 6
+    },
+    {
+      "question_name": "what is thermodynamics?",
+      "option_one": "fission",
+      "option_two": "fussion",
+      "option_three": "absorption",
+      "option_four": "adsorption",
+      "question_answer": "fission",
+      "exam_id": "2",
+      "subject_name": "java",
+      "id": 7
+    },
+    {
+      "question_name": "what is thermodynamics?",
+      "option_one": "fission",
+      "option_two": "fussion",
+      "option_three": "absorption",
+      "option_four": "adsorption",
+      "question_answer": "fission",
+      "exam_id": "2",
+      "subject_name": "java",
+      "id": 8
+    },
+    {
+      "question_name": "what is java?",
+      "option_one": "mvc",
+      "option_two": "oops",
+      "option_three": "platform independent",
+      "option_four": "wora",
+      "question_answer": "wora",
+      "exam_id": "2",
+      "subject_name": "java",
+      "id": 9
+    },
+    {
+      "question_name": "what is javascript?",
+      "option_one": "scripting language",
+      "option_two": "typescript",
+      "option_three": "naren",
+      "option_four": "javad",
+      "question_answer": "naren",
+      "exam_id": "2",
+      "subject_name": "java",
+      "id": 10
+    },
+    {
+      "question_name": "what is java?",
+      "option_one": "oops",
+      "option_two": "owra",
+      "option_three": "platform independent",
+      "option_four": "none of these above",
+      "question_answer": "owra",
+      "exam_id": "3",
+      "subject_name": "java",
+      "id": 11
+    },
+    {
+      "question_name": "what is oops?",
+      "option_one": "object orientedprogramming language",
+      "option_two": "object oracle programming language",
+      "option_three": "object oriented programming structure",
+      "option_four": "object oriented protractor structure",
+      "question_answer": "object oriented programming structure",
+      "exam_id": "3",
+      "subject_name": "java",
+      "id": 12
+    },
+    {
+      "question_name": "what is interface?",
+      "option_one": "To define roles",
+      "option_two": "To define kind",
+      "option_three": "To define object",
+      "option_four": "To define relation",
+      "question_answer": "To define roles",
+      "exam_id": ":id",
+      "subject_name": "java",
+      "id": 13
+    },
+    {
+      "question_name": "what is abstract?",
+      "option_one": "kind of",
+      "option_two": "role of",
+      "option_three": "call of",
+      "option_four": "soul of",
+      "question_answer": "kind of",
+      "exam_id": "3",
+      "subject_name": "java",
+      "id": 14
+    },
+    {
+      "question_name": "what is exception?",
+      "option_one": "event",
+      "option_two": "mild error",
+      "option_three": "service",
+      "option_four": "not error",
+      "question_answer": "mild error",
+      "exam_id": "3",
+      "subject_name": "java",
+      "id": 15
+    }
+  ],
+  "Result": [
+    {
+      "id": 1,
+      "result_status": "Pass",
+      "result_score": "3",
+      "user_email": "ram@gmail.com",
+      "exam_date": "12-23-12",
+      "exam_name": "Maths",
+      "total_marks": "5",
+      "exam_id": "1",
+      "total_Question": "5"
+    },
+    {
+      "id": 2,
+      "result_status": "Pass",
+      "result_score": "3",
+      "user_email": "ram@gmail.com",
+      "exam_date": "12-23-12",
+      "exam_name": "Maths",
+      "total_marks": "5",
+      "exam_id": "1",
+      "total_Question": "5"
+    },
+    {
+      "id": 3,
+      "result_status": "Pass",
+      "result_score": "3",
+      "user_email": "shiv@gmail.com",
+      "exam_date": "12-23-12",
+      "exam_name": "Maths",
+      "total_marks": "5",
+      "exam_id": "1",
+      "total_Question": "5"
+    },
+    {
+      "result_status": "Pass",
+      "result_score": 3,
+      "user_email": "ram@gmail.com",
+      "exam_date": "18-9-2021 20:49:39",
+      "exam_name": "Maths",
+      "total_marks": "5",
+      "exam_id": "1",
+      "total_Question": "5",
+      "id": 4
+    },
+    {
+      "result_status": "Pass",
+      "result_score": 4,
+      "user_email": "vishnu@gmail.com",
+      "exam_date": "19-9-2021 15:11:27",
+      "exam_name": "Maths",
+      "total_marks": "5",
+      "exam_id": "1",
+      "total_Question": "5",
+      "id": 5
+    },
+    {
+      "result_status": "Pass",
+      "result_score": 4,
+      "user_email": "agni@gmail.com",
+      "exam_date": "19-9-2021 15:20:37",
+      "exam_name": "Maths",
+      "total_marks": "5",
+      "exam_id": "1",
+      "total_Question": "5",
+      "id": 6
+    },
+    {
+      "result_status": "Pass",
+      "result_score": 5,
+      "user_email": null,
+      "exam_date": "6-12-2023 18:23:18",
+      "exam_name": "Maths",
+      "total_marks": "5",
+      "exam_id": "1",
+      "total_Question": "5",
+      "id": 7
+    },
+    {
+      "result_status": "Pass",
+      "result_score": 3,
+      "user_email": null,
+      "exam_date": "6-12-2023 18:23:41",
+      "exam_name": "Maths",
+      "total_marks": "5",
+      "exam_id": "1",
+      "total_Question": "5",
+      "id": 8
+    },
+    {
+      "result_status": "Pass",
+      "result_score": 4,
+      "user_email": null,
+      "exam_date": "6-12-2023 18:27:38",
+      "exam_name": "Maths",
+      "total_marks": "5",
+      "exam_id": "1",
+      "total_Question": "5",
+      "id": 9
+    },
+    {
+      "result_status": "Fail",
+      "result_score": 0,
+      "user_email": null,
+      "exam_date": "7-12-2023 9:59:50",
+      "exam_name": "Maths",
+      "total_marks": "5",
+      "exam_id": "1",
+      "total_Question": "5",
+      "id": 10
+    }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "user_name": "ram",
+      "user_email": "ram@gmail.com",
+      "user_password": "1234"
+    },
+    {
+      "id": 2,
+      "user_name": "shiv",
+      "user_email": "shiv@gmail.com",
+      "user_password": "1234"
+    },
+    {
+      "user_name": "Vishnu",
+      "user_email": "vishnu@gmail.com",
+      "user_password": "123",
+      "id": 3
+    },
+    {
+      "user_name": "Agni",
+      "user_email": "agni@gmail.com",
+      "user_password": "123",
+      "id": 4
+    }
+  ]
+}

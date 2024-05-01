@@ -1,0 +1,34 @@
+.navbar {
+  background: rgb(0, 0, 0);
+}
+.hello{
+  text-decoration:none;
+  color:white;
+  background-color:transparent;
+  width:100px;
+  height:30px;
+  transition: 0.5s ease;
+  border: 1.5px solid white;
+}
+.hello:hover{
+  transition: 0.5s ease;
+  background-color: white;
+  color: black;
+}
+@media screen and (max-width: 768px) {
+  .btn-outline-dark {
+    border: none;
+    padding: 0;
+    outline: none;
+  }
+
+  .btn-outline-dark:hover {
+    background: none;
+    color: gray;
+  }
+}
+ .bg-image{
+  background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+  background-size: cover;
+
+} 

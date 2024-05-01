@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+	license agreements. See the NOTICE file distributed with this work for additional 
+	information regarding copyright ownership. The ASF licenses this file to 
+	you under the Apache License, Version 2.0 (the "License"); you may not use 
+	this file except in compliance with the License. You may obtain a copy of 
+	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. -->
+<site-conf
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://ofbiz.apache.org/Site-Conf"
+	xsi:schemaLocation="http://ofbiz.apache.org/Site-Conf http://ofbiz.apache.org/dtds/site-conf.xsd">
+	<!-- The controller elements that are common to all OFBiz components can 
+		be found in the following xml file. A component can override the elements 
+		found in the common-controller.xml file. -->
+	<include
+		location="component://common/webcommon/WEB-INF/common-controller.xml" />
+	<description>OnlineExamPortal Component Site Configuration File</description>
+	<!-- Events to run on every request before security (chains exempt) -->
+	<!-- <preprocessor></preprocessor> -->
+	<!-- Events to run on every request after all other processing (chains exempt) -->
+	<!-- <postprocessor><event name="test" type="java" path="org.apache.ofbiz.webapp.event.TestEvent" 
+		invoke="test"/></postprocessor> -->
+	<!-- Request Mappings -->
+	<request-map uri="main">
+		<security https="true" auth="true" />
+		<response name="success" type="view" value="main" />
+	</request-map>
+	<request-map uri="validate">
+		<security https="true" auth="false" />
+		<event type="java" path="com.exam.events.LoginEvent"
+			invoke="dologin" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="register">
+		<security https="true" auth="false" />
+		<event type="java" path="com.exam.events.RegistrationEvent"
+			invoke="register" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="create-topic">
+		<security https="true" auth="true" />
+		<event type="java" path="com.exam.events.TopicMasterEvents"
+			invoke="createTopic" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="update-topic">
+		<security https="true" auth="true" />
+		<event type="java" path="com.exam.events.TopicMasterEvents"
+			invoke="updateTopic" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="delete-topic">
+		<security https="true" auth="true" />
+		<event type="java" path="com.exam.events.TopicMasterEvents"
+			invoke="deleteTopic" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<!-- View Mappings -->
+	<!-- <view-map name="main" type="request" page="component://onlineexam/widget/OnlineexamScreens.xml#main"/> -->
+	<request-map uri="fetch-topics">
+		<security https="true" auth="true" />
+		<event type="java" path="com.exam.events.TopicMasterEvents"
+			invoke="fetchAllTopics" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	
+	<request-map uri="fetch-selected-topics">
+		<security https="true" auth="true" />
+		<event type="java" path="com.exam.events.ExamTopicMappingEvents"
+			invoke="getSelectedExams" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	
+	<request-map uri="fetch-one-topic">
+		<security https="true" auth="false" />
+		<event type="java" path="com.exam.events.TopicMasterEvents"
+			invoke="fetchOneTopic" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<!-- Request Mappings -->
+	<request-map uri="create-exam">
+		<security https="true" auth="true" />
+		<event type="java" path="com.exam.events.ExamMasterEvents"
+			invoke="createExam" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="fetch-exams">
+		<security https="true" auth="true" />
+		<event type="java" path="com.exam.events.ExamMasterEvents"
+			invoke="fetchAllExams" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="update-exam">
+		<security https="true" auth="true" />
+		<event type="java" path="com.exam.events.ExamMasterEvents"
+			invoke="updateExam" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<!-- Request Mappings -->
+	<request-map uri="create-question">
+		<security https="true" auth="true" />
+		<event type="java" path="com.exam.events.QuestionMasterEvents"
+			invoke="createQuestion" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="fetch-questions">
+		<security https="true" auth="true" />
+		<event type="java" path="com.exam.events.QuestionMasterEvents"
+			invoke="fetchAllQuestions" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="update-question">
+		<security https="true" auth="true" />
+		<event type="java" path="com.exam.events.QuestionMasterEvents"
+			invoke="updateQuestion" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="delete-question">
+		<security https="true" auth="true" />
+		<event type="java" path="com.exam.events.QuestionMasterEvents"
+			invoke="deleteQuestion" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	
+	<request-map uri="calculate-percentage">
+		<security https="true" auth="true" />
+		<event type="java" path="com.exam.events.ExamTopicMappingEvents"
+			invoke="calculatePercentage" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	
+	<request-map uri="create-topic-for-exam">
+		<security https="true" auth="true" />
+		<event type="java" path="com.exam.events.ExamTopicMappingEvents"
+			invoke="createTopicForExam" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="fetch-all-exam-topics">
+		<security https="true" auth="true" />
+		<event type="java" path="com.exam.events.ExamTopicMappingEvents"
+			invoke="fetchAllExamTopics" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="update-topic-for-exam">
+		<security https="true" auth="true" />
+		<event type="java" path="com.exam.events.ExamTopicMappingEvents"
+			invoke="updateTopicForExam" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="fetch-ques-type">
+		<security https="true" auth="true" />
+		<event type="java"
+			path="com.exam.events.EnumerationEntityListEvent"
+			invoke="fetchQuesType" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="fetch-student-details">
+		<security https="true" auth="true" />
+		<event type="java" path="com.exam.events.StudentListEvents"
+			invoke="fetchStudentList" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	<request-map uri="create-exam-for-user">
+		<security https="true" auth="true" />
+		<event type="java" path="com.exam.events.UserExamMappingEvents"
+			invoke="createExamForUser"></event>
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+
+	<request-map uri="fetch-all-users">
+		<security https="true" auth="true" />
+		<event type="java" path="com.exam.events.UserExamMappingEvents"
+			invoke="fetchAllUsers"></event>
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+
+	<request-map uri="questions-per-topic">
+		<security https="true" auth="true" />
+		<event type="java" path="com.exam.events.UserExamMappingEvents"
+			invoke="questionsPerTopic"></event>
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+
+	<request-map uri="exam-info">
+		<security https="true" auth="true" />
+		<event type="java" path="com.exam.events.ExamInformation"
+			invoke="getExamInfo" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+
+	<request-map uri="question-info">
+		<security https="true" auth="true" />
+		<event type="java" path="com.exam.events.QuestionInformation"
+			invoke="getQuestionInfo" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+
+
+	<request-map uri="user-attempt-master">
+		<security https="true" auth="true" />
+		<event type="java" path="com.exam.events.UserAttempt"
+			invoke="userAttemptInfo" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+
+	<request-map uri="update-result">
+		<security https="true" auth="true" />
+		<event type="java" path="com.exam.events.UserResult"
+			invoke="getUserResult" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+	
+	<request-map uri="fetch-user-report">
+		<security https="true" auth="true" />
+		<event type="java" path="com.exam.events.ReportEvent"
+			invoke="fetchResults" />
+		<response name="success" type="request" value="json" />
+		<response name="error" type="request" value="json" />
+	</request-map>
+
+	<!-- View Mappings -->
+	<view-map name="main" type="screen"
+		page="component://OnlineExamPortal/widget/OnlineExamPortalScreens.xml#main" />
+</site-conf>
